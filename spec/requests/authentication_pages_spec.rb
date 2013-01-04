@@ -33,7 +33,7 @@ describe "Authentication" do
 
       it { should have_selector('title', text: user.name) }
 
-      it { should have_link('Users',    href: users_path) }
+      it { should have_link('Designers',    href: users_path) }
       it { should have_link('Profile',  href: user_path(user)) }
       it { should have_link('Settings', href: edit_user_path(user)) }
       it { should have_link('Sign out', href: signout_path) }
@@ -86,6 +86,20 @@ describe "Authentication" do
           it { should have_selector('title', text: 'Sign in') }
         end
       end
+
+      describe "in the Projects controller" do
+
+        describe "submitting to the create action" do
+          before { post projects_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete project_path(FactoryGirl.create(:project)) }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
+
     end
 
     describe "as wrong user" do

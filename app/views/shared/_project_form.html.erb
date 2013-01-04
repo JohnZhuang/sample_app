@@ -1,0 +1,29 @@
+<%= form_for(@project) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :title, placeholder: "Compose new title..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :description, placeholder: "Description" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :location, placeholder: "Location" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :start, placeholder: "Start Date" %>
+  </div>
+    <div class="field">
+    <%= f.text_area :end, placeholder: "End Date" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :goal, placeholder: "Goal" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :pledged, placeholder: "Pledged" %>
+  </div>
+    <div class="field">
+    <%= f.text_area :backers, placeholder: "Backers" %>
+  </div>
+
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>

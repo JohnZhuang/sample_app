@@ -1,0 +1,48 @@
+<h1> Add a new project </h1>
+
+<%= form_for @project do |form| %>
+	<% if @project.errors.any? %>
+		<h2>Errors:</h2>
+		<ul>
+			<% @project.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<p>
+		<%= form.label :title %> <br/>
+		<%= form.text_field :title %>
+	</p>
+	<p>
+		<%= form.label :description %> <br/>
+		<%= form.text_area :description %>
+	</p>
+	<p>
+		<%= form.label :location %> <br/>
+		<%= form.text_field :location %>
+	</p>
+	<p>
+		<%= form.label :pledged %> <br/>
+		<%= form.text_field :pledged %>
+	</p>
+	<p>
+		<%= form.label :goal %> <br/>
+		<%= form.text_field :goal %>
+	</p>
+	<p>
+		<%= form.label :start %> <br/>
+		<%= select_date Date.today, :prefix => :start %>
+	</p>
+	<p>
+		<%= form.label :end %> <br/>
+		<%= select_date Date.today, :prefix => :end %>
+	</p>
+	<p>
+		<%= form.label :backers %> <br/>
+		<%= form.text_field :backers %>
+	</p>
+	<p>
+		<%= form.submit "Add a New Project" %> 
+	</p>
+
+<% end %>
