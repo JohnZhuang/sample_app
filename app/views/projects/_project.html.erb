@@ -1,17 +1,20 @@
-<li>
-  <span class="title"><%= project.title %></span>
-  <span class="description"><%= project.description %></span>
-  <span class="location"><%= project.location %></span>
-  <span class="start"><%= project.start %></span>
-  <span class="end"><%= project.end %></span>
-  <span class="goal"><%= project.goal %></span>
-  <span class="pledged"><%= project.pledged %></span>
-  <span class="backers"><%= project.backers %></span>
-
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(project.created_at) %> ago.
-  </span>
-  <% if !current_user.nil? && current_user.admin? %>
+<li class="project span3">
+  <article class="thumbnail">
+                <!--<%= gravatar_for project.user, size: 200 %> -->
+                <img class="gravatar" src="http://jazcollection.com/images/demo/x403.116.jpg">
+                
+                 <div class="clear" />
+                <h4><%= link_to project.title, project %> <% if !current_user.nil? && current_user.admin? %>
     |  <%= link_to "delete", project, method: :delete, data: { confirm: "You sure?" } %>
-    <% end %>
+    <% end %> </h4>
+                <h5><%= project.description %></h5>
+                <h6><i class="icon-globe"></i><%= project.location %></h6>
+                <ul>
+                  <h6>Start: <%= project.start %> </h6>
+                  <h6>End: <%= project.end %> </h6>
+                  <h6>Goal: <%= project.goal %> </h6>
+                  <h6>Pledged: <%= project.pledged %></h6>
+                  <h6>Backers: <%= project.backers %></h6>
+                </ul>
+              </article>
 </li>

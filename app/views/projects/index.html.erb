@@ -1,10 +1,13 @@
 <% provide(:title, 'All Projects') %>
 <h1>All Projects</h1>
-
+<% @projects = Project.paginate(:page => params[:page], :per_page => 12)%>
 <%= will_paginate %>
-
-<ul class="projects">
+<div class="clear"></div>
+<div class="row-fluid">
+<ul class="thumbnails">
   <%= render @projects %>
 </ul>
+</div>
 
 <%= will_paginate %>
+<div class="clear"></div>

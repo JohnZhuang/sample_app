@@ -1,10 +1,12 @@
 <% provide(:title, 'All Designers') %>
 <h1>All Designers</h1>
 
+<% @users = User.paginate(:page => params[:page], :per_page => 12)%>
 <%= will_paginate %>
-
+<div class="clear"></div>
 <ul class="users">
   <%= render @users %>
 </ul>
 
 <%= will_paginate %>
+<div class="clear"></div>
