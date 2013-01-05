@@ -1,10 +1,18 @@
-<% provide(:title, @project.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
+<% provide(:title, @project.title) %>
+
+    	<img class="gravatar" src="http://jazcollection.com/images/demo/x403.116.jpg">
+
       <h1>
-        <%= @project.name %>
+        <%= @project.title %>
       </h1>
-    </section>
-  </aside>
-</div>
+      <h2>
+        <%= @project.description %>
+      </h2>
+      <h6><i class="icon-globe"></i><%= @project.location %></h6>
+                <ul>
+                  <h6>Start: <%= @project.start %> </h6>
+                  <h6>End: <%= @project.end %> </h6>
+                  <h6>Goal: <%= @project.goal %> </h6>
+                  <h6>Pledged: <%= @project.pledged %></h6>
+                  <h6>Backers: <%= @project.backers %></h6>
+                </ul>

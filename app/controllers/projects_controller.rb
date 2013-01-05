@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
     @projects = Project.paginate(page: params[:page])
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def create
     @project = current_user.projects.build(params[:project])
     if @project.save
